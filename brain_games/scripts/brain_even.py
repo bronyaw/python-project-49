@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 from random import randint
-import cli
+import prompt
 
 
-cli.welcome_user()
+def welcome_user():
+    global name
+    name = prompt.string('May i have your name? ')
+    print(f"Hello, {name}!")
+
+
+welcome_user()
 
 
 def main():
@@ -20,7 +26,7 @@ def main():
             else:  # wrong answer
                 cor_answers = 0
                 print(f"'{user_answer}'is wrong answer ;( "
-                      f"Correct answer was 'no'\nLet's try again, {cli.name}!")
+                      f"Correct answer was 'no'\nLet's try again, {name}!")
         elif (question % 2) != 0:
             if user_answer == "no":  # correct answer
                 cor_answers += 1
@@ -28,8 +34,8 @@ def main():
             else:  # wrong answer
                 cor_answers = 0
                 print(f"'{user_answer}'is wrong answer ;( "
-                      f"Correct answer was 'yes'\nLet's try again, {cli.name}!")
-    print(f'Congratulations, {cli.name}!')
+                      f"Correct answer was 'yes'\nLet's try again, {name}!")
+    print(f'Congratulations, {name}!')
 
 
 if __name__ == '__main__':
