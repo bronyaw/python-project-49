@@ -36,7 +36,7 @@ def brain_calc(user):
             exit(f"'{user_answer}' is wrong answer ;( "
                  f"Correct answer was '{task[c]}'\n"
                  f"Let's try again, {user}!")
-        print(f'Congratulations, {user}!')
+    print(f'Congratulations, {user}!')
 
 
 if __name__ == '__main__':

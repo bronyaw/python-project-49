@@ -5,7 +5,9 @@ install:
 brain-games:
 	poetry run brain-games
 	poetry run brain-even
-
+	poetry run brain-calc
+	poetry run brain-gcd
+	poetry run brain-progression
 build:
 	poetry build
 
@@ -18,3 +20,6 @@ package-install:
 make-lint:
 	poetry run flake8 brain_games
 	poetry run flake8 brain_even
+	poetry run flake8 brain_calc
+	poetry run flake8 brain_gcd
+	poetry run flake8 brain_progression
