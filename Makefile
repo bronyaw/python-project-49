@@ -1,4 +1,3 @@
-#Makefile~
 install:
 	poetry install
 
@@ -8,6 +7,8 @@ brain-games:
 	poetry run brain-calc
 	poetry run brain-gcd
 	poetry run brain-progression
+	poetry run brain-prime
+
 build:
 	poetry build
 
@@ -23,3 +24,4 @@ make-lint:
 	poetry run flake8 brain_calc
 	poetry run flake8 brain_gcd
 	poetry run flake8 brain_progression
+	poetry run flake8 brain_prime

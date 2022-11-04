@@ -8,29 +8,44 @@ def main():
     print('Welcome to the Brain Games!')
     name = prompt.string('May i have your name? ')
     print(f"Hello, {name}!")
-    brain_even(name)
+    brain_prime(name)
 
 
-def brain_even(user):
-    print('Answer "yes" if the number is even, otherwise answer "no".')
+def is_prime(n):  # checks if number is prime
+    for i in range(2, int(n / 2)):
+        if (n % i) == 0:
+            return False
+    return True
+
+
+def str2bool_yes(string):  # returns True if string = 'yes'
+    return string.lower() in ("yes")
+
+
+def str2bool_no(string):  # return False if string = 'no'
+    return string.lower() in ("no")
+
+
+def brain_prime(user):
+    print('Answer "yes" if given number is prime. Otherwise answer "no"')
     cor_answers = 0
     while cor_answers != 3:
-        question = randint(0, 100)
-        print('Question:', question)
-        user_answer = input('Your answer: ')
-        if (question % 2) == 0:  # even
-            if str.lower(user_answer) == "yes":  # correct answer yes
+        x = randint(1, 100)
+        print("Question:", x)
+        user_answer = input("Your answer: ")
+        if is_prime(x):  # True goes first
+            if str2bool_yes(user_answer):  # yes = correct answer
                 cor_answers += 1
                 print('Correct!')
-            else:  # wrong answer no
+            else:
                 exit(f"'{user_answer}' is wrong answer ;( "
                      f"Correct answer was 'yes'\n"
                      f"Let's try again, {user}!")
-        else:  # odd
-            if str.lower(user_answer) == "no":  # correct answer no
+        else:
+            if str2bool_no(user_answer):  # no = correct answer
                 cor_answers += 1
                 print('Correct!')
-            else:  # wrong answer yes
+            else:
                 exit(f"'{user_answer}' is wrong answer ;( "
                      f"Correct answer was 'no'\n"
                      f"Let's try again, {user}!")
