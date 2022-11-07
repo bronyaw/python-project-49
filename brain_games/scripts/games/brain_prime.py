@@ -26,7 +26,7 @@ def str2bool_no(string):  # return False if string = 'no'
 
 
 def brain_prime(user):
-    print('Answer "yes" if given number is prime. Otherwise answer "no"')
+    print('Answer "yes" if given number is prime. Otherwise answer "no".')
     cor_answers = 0
     while cor_answers != 3:
         x = randint(1, 100)
