@@ -12,7 +12,7 @@ def main():
 
 
 def brain_gcd(user):  # easy enough ¯\_(ツ)_/¯
-    print("Find the greatest commom divisor of given numbers.")
+    print("Find the greatest common divisor of given numbers.")
     cor_answers = 0
     while cor_answers != 3:
         x = randint(1, 100)
