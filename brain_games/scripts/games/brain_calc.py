@@ -14,13 +14,13 @@ def brain_calc(user):
     print('What is the result of the expression?')
     cor_answers = 0
     while cor_answers != 3:
-        x = randint(1, 10)  # x, y -  variables for expression
-        y = randint(1, 10)
+        x = randint(1, 20)  # x, y -  variables for expression
+        y = randint(1, 20)
         c = randint(0, 2)  # c - index for task, question_print
         task = [x + y, x * y, x - y]  # calculates
-        question_print = [str(x) + '+' + str(y),  # prints
-                          str(x) + '*' + str(y),
-                          str(x) + '-' + str(y)]
+        question_print = [str(x) + ' + ' + str(y),  # prints
+                          str(x) + ' * ' + str(y),
+                          str(x) + ' - ' + str(y)]
         print('Question:', question_print[c])
         user_answer = input('Your answer: ')
         try:
