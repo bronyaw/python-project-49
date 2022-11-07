@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from random import randint
-from sys import exit
 import prompt
 
 
@@ -29,13 +28,15 @@ def brain_calc(user):
                 print('Correct!')
                 cor_answers += 1
             else:  # wrong answer
-                exit(f"'{user_answer}' is wrong answer ;( "
-                     f"Correct answer was '{task[c]}'\n"
-                     f"Let's try again, {user}!")
+                print(f"'{user_answer}' is wrong answer ;( "
+                      f"Correct answer was '{task[c]}'\n"
+                      f"Let's try again, {user}!")
+                return
         except ValueError:  # if not int, so it doesnt break program
-            exit(f"'{user_answer}' is wrong answer ;( "
-                 f"Correct answer was '{task[c]}'\n"
-                 f"Let's try again, {user}!")
+            print(f"'{user_answer}' is wrong answer ;( "
+                  f"Correct answer was '{task[c]}'\n"
+                  f"Let's try again, {user}!")
+            return
     print(f'Congratulations, {user}!')
 
 

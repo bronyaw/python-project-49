@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from random import randint
-from sys import exit
 import prompt
 
 
@@ -36,13 +35,15 @@ def brain_progression(user):
                 cor_answers += 1
                 print('Correct!')
             else:
-                exit(f"'{user_answer}' is wrong answer ;( "
-                     f"Correct answer was '{answer}'\n"
-                     f"Let's try again, {user}!")
+                print(f"'{user_answer}' is wrong answer ;( "
+                      f"Correct answer was 'no'\n"
+                      f"Let's try again, {user}!")
+                return
         except ValueError:
-            exit(f"'{user_answer}' is wrong answer ;( "
-                 f"Correct answer was '{answer}'\n"
-                 f"Let's try again, {user}!")
+            print(f"'{user_answer}' is wrong answer ;( "
+                  f"Correct answer was 'no'\n"
+                  f"Let's try again, {user}!")
+            return
     print(f'Congratulations, {user}!')
 
 

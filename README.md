@@ -3,10 +3,10 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/580e74b3f0a1376a61fc/maintainability)](https://codeclimate.com/github/bronyaw/python-project-49/maintainability)
 
 
-##Brain games, an entire collection of 5 games!! By bronyaw (c)
+Brain games, an entire collection of 5 games!! 
 
 
-#Installation and game commands guide in the videos below:
+Installation and game commands guide in the videos below:
 
 [![asciicast](https://asciinema.org/a/534988.svg)](https://asciinema.org/a/534988)
 [![asciicast](https://asciinema.org/a/534948.svg)](https://asciinema.org/a/534948)

@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from random import randint
-from sys import exit
 import prompt
 
 
@@ -23,17 +22,19 @@ def brain_even(user):
                 cor_answers += 1
                 print('Correct!')
             else:  # wrong answer no
-                exit(f"'{user_answer}' is wrong answer ;( "
-                     f"Correct answer was 'yes'\n"
-                     f"Let's try again, {user}!")
+                print(f"'{user_answer}' is wrong answer ;( "
+                      f"Correct answer was 'no'\n"
+                      f"Let's try again, {user}!")
+                return
         else:  # odd
             if str.lower(user_answer) == "no":  # correct answer no
                 cor_answers += 1
                 print('Correct!')
             else:  # wrong answer yes
-                exit(f"'{user_answer}' is wrong answer ;( "
-                     f"Correct answer was 'no'\n"
-                     f"Let's try again, {user}!")
+                print(f"'{user_answer}' is wrong answer ;( "
+                      f"Correct answer was 'no'\n"
+                      f"Let's try again, {user}!")
+                return
     print(f'Congratulations, {user}!')
 
 

@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from random import randint
-from sys import exit
 import prompt
 
 
@@ -38,17 +37,19 @@ def brain_prime(user):
                 cor_answers += 1
                 print('Correct!')
             else:
-                exit(f"'{user_answer}' is wrong answer ;( "
-                     f"Correct answer was 'yes'\n"
-                     f"Let's try again, {user}!")
+                print(f"'{user_answer}' is wrong answer ;( "
+                      f"Correct answer was 'no'\n"
+                      f"Let's try again, {user}!")
+                return
         else:
             if str2bool_no(user_answer):  # no = correct answer
                 cor_answers += 1
                 print('Correct!')
             else:
-                exit(f"'{user_answer}' is wrong answer ;( "
-                     f"Correct answer was 'no'\n"
-                     f"Let's try again, {user}!")
+                print(f"'{user_answer}' is wrong answer ;( "
+                      f"Correct answer was 'no'\n"
+                      f"Let's try again, {user}!")
+                return
     print(f'Congratulations, {user}!')
 
 
