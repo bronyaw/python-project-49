@@ -1,16 +1,9 @@
 #!/usr/bin/env python3
 from random import randint
-import prompt
+from brain_games.scripts import user_engine as user
 
 
-def main():
-    print('Welcome to the Brain Games!')
-    name = prompt.string('May i have your name? ')
-    print(f"Hello, {name}!")
-    brain_progression(name)
-
-
-def progr(x, y):
+def progr(x, y):  # makes list of progression of x ; y index = '..'
     string = []
     plus = x
     while len(string) != 10:
@@ -20,31 +13,23 @@ def progr(x, y):
     return string
 
 
-def brain_progression(user):
+def main():
+    name = user.welcome()
     print("What number is missing in the progression?")
-    cor_answers = 0
-    while cor_answers != 3:
+    while user.cor_answers != 3:
         x = randint(1, 20)
         y = randint(1, 9)
-        question = progr(x, y)  # makes list of progression of x ; y index ='..'
+        question = progr(x, y)
         answer = question[y - 1] + x
-        print('Question:', *question, sep=" ")
-        user_answer = input('Your answer: ')
+        user_answer = user.question_answer(' '.join(map(str, question)))
         try:
             if int(user_answer) == answer:
-                cor_answers += 1
-                print('Correct!')
+                user.correct()
             else:
-                print(f"'{user_answer}' is wrong answer ;( "
-                      f"Correct answer was 'no'\n"
-                      f"Let's try again, {user}!")
-                return
+                return user.wrong(name, user_answer, answer)
         except ValueError:
-            print(f"'{user_answer}' is wrong answer ;( "
-                  f"Correct answer was 'no'\n"
-                  f"Let's try again, {user}!")
-            return
-    print(f'Congratulations, {user}!')
+            return user.wrong(name, user_answer, answer)
+    user.win(name)
 
 
 if __name__ == '__main__':

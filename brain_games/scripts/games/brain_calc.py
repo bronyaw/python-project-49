@@ -1,43 +1,28 @@
 #!/usr/bin/env python3
 from random import randint
-import prompt
+from brain_games.scripts import user_engine as user
 
 
 def main():
-    print('Welcome to the Brain Games!')
-    name = prompt.string('May i have your name? ')
-    print(f"Hello, {name}!")
-    brain_calc(name)
-
-
-def brain_calc(user):
+    name = user.welcome()
     print('What is the result of the expression?')
-    cor_answers = 0
-    while cor_answers != 3:
+    while user.cor_answers != 3:
         x = randint(1, 20)  # x, y -  variables for expression
         y = randint(1, 20)
-        c = randint(0, 2)  # c - index for task, question_print
-        task = [x + y, x * y, x - y]  # calculates
-        question_print = [str(x) + ' + ' + str(y),  # prints
-                          str(x) + ' * ' + str(y),
-                          str(x) + ' - ' + str(y)]
-        print('Question:', question_print[c])
-        user_answer = input('Your answer: ')
+        index = randint(0, 2)  # index for answer, question
+        answer = [x + y, x * y, x - y]  # calculates
+        question = [str(x) + ' + ' + str(y),  # prints
+                    str(x) + ' * ' + str(y),
+                    str(x) + ' - ' + str(y)]
+        user_answer = user.question_answer(question[index])
         try:
-            if int(user_answer) == task[c]:  # correct answer
-                print('Correct!')
-                cor_answers += 1
+            if int(user_answer) == answer[index]:  # correct answer
+                user.correct()
             else:  # wrong answer
-                print(f"'{user_answer}' is wrong answer ;( "
-                      f"Correct answer was '{task[c]}'\n"
-                      f"Let's try again, {user}!")
-                return
-        except ValueError:  # if not int, so it doesnt break program
-            print(f"'{user_answer}' is wrong answer ;( "
-                  f"Correct answer was '{task[c]}'\n"
-                  f"Let's try again, {user}!")
-            return
-    print(f'Congratulations, {user}!')
+                return user.wrong(name, user_answer, answer[index])
+        except ValueError:  # if not number, so it doesnt break
+            return user.wrong(name, user_answer, answer[index])
+    user.win(name)
 
 
 if __name__ == '__main__':

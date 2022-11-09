@@ -1,40 +1,25 @@
 #!/usr/bin/env python3
 from random import randint
 from math import gcd
-import prompt
+from brain_games.scripts import user_engine as user
 
 
 def main():
-    print('Welcome to the Brain Games!')
-    name = prompt.string('May i have your name? ')
-    print(f"Hello, {name}!")
-    brain_gcd(name)
-
-
-def brain_gcd(user):  # easy enough ¯\_(ツ)_/¯
+    name = user.welcome()
     print("Find the greatest common divisor of given numbers.")
-    cor_answers = 0
-    while cor_answers != 3:
+    while user.cor_answers != 3:
         x = randint(1, 100)
         y = randint(1, 100)
         answer = gcd(x, y)  # find greatest div number
-        print(f'Question: {x} {y}')
-        user_answer = input('Your answer: ')
+        user_answer = user.question_answer(f'{x} {y}')
         try:
             if int(user_answer) == answer:
-                cor_answers += 1
-                print('Correct!')
+                user.correct()
             else:
-                print(f"'{user_answer}' is wrong answer ;( "
-                      f"Correct answer was '{answer}'\n"
-                      f"Let's try again, {user}!")
-                return
-        except ValueError:  # if not int, so it doesnt break program
-            print(f"'{user_answer}' is wrong answer ;( "
-                  f"Correct answer was '{answer}'\n"
-                  f"Let's try again, {user}!")
-            return
-    print(f'Congratulations, {user}!')
+                return user.wrong(name, user_answer, answer)
+        except ValueError:  # if not number, so it doesnt break
+            return user.wrong(name, user_answer, answer)
+    user.win(name)
 
 
 if __name__ == '__main__':

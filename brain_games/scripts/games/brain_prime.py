@@ -1,13 +1,6 @@
 #!/usr/bin/env python3
 from random import randint
-import prompt
-
-
-def main():
-    print('Welcome to the Brain Games!')
-    name = prompt.string('May i have your name? ')
-    print(f"Hello, {name}!")
-    brain_prime(name)
+from brain_games.scripts import user_engine as user
 
 
 def is_prime(n):  # checks if number is prime
@@ -25,32 +18,23 @@ def str2bool_no(string):  # return False if string = 'no'
     return string.lower() in ("no")
 
 
-def brain_prime(user):
+def main():
+    name = user.welcome()
     print('Answer "yes" if given number is prime. Otherwise answer "no".')
-    cor_answers = 0
-    while cor_answers != 3:
+    while user.cor_answers != 3:
         x = randint(1, 100)
-        print("Question:", x)
-        user_answer = input("Your answer: ")
+        user_answer = user.question_answer(x)
         if is_prime(x):  # True goes first
             if str2bool_yes(user_answer):  # yes = correct answer
-                cor_answers += 1
-                print('Correct!')
+                user.correct()
             else:
-                print(f"'{user_answer}' is wrong answer ;( "
-                      f"Correct answer was 'no'\n"
-                      f"Let's try again, {user}!")
-                return
+                return user.wrong(name, user_answer, "'yes'")
         else:
             if str2bool_no(user_answer):  # no = correct answer
-                cor_answers += 1
-                print('Correct!')
+                user.correct()
             else:
-                print(f"'{user_answer}' is wrong answer ;( "
-                      f"Correct answer was 'no'\n"
-                      f"Let's try again, {user}!")
-                return
-    print(f'Congratulations, {user}!')
+                return user.wrong(name, user_answer, "'no'")
+    user.win(name)
 
 
 if __name__ == '__main__':
