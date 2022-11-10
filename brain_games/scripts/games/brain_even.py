@@ -14,7 +14,6 @@ def main():
             if user_answer.lower() == "yes":  # correct answer yes
                 user.correct()
             else:  # wrong answer no
-                print(user_answer, '1')
                 return user.wrong(name, user_answer, answer)
         else:  # odd
             answer = "'no'"
