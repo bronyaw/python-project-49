@@ -11,14 +11,14 @@ def main():
         user_answer = user.question_answer(question)
         if (question % 2) == 0:  # even
             answer = "'yes'"
-            if str.lower(user_answer) == "yes":  # correct answer yes
+            if user_answer.lower() == "yes":  # correct answer yes
                 user.correct()
             else:  # wrong answer no
                 print(user_answer, '1')
                 return user.wrong(name, user_answer, answer)
         else:  # odd
             answer = "'no'"
-            if str.lower(user_answer) == "no":  # correct answer no
+            if user_answer.lower() == "no":  # correct answer no
                 user.correct()
             else:  # wrong answer yes
                 return user.wrong(name, user_answer, answer)

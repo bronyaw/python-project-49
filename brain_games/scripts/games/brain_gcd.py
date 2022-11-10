@@ -12,12 +12,9 @@ def main():
         y = randint(1, 100)
         answer = gcd(x, y)  # find greatest div number
         user_answer = user.question_answer(f'{x} {y}')
-        try:
-            if int(user_answer) == answer:
-                user.correct()
-            else:
-                return user.wrong(name, user_answer, answer)
-        except ValueError:  # if not number, so it doesnt break
+        if user_answer == str(answer):
+            user.correct()
+        else:
             return user.wrong(name, user_answer, answer)
     user.win(name)
 

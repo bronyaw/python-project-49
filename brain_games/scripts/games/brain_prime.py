@@ -10,14 +10,6 @@ def is_prime(n):  # checks if number is prime
     return True
 
 
-def str2bool_yes(string):  # returns True if string = 'yes'
-    return string.lower() in ("yes")
-
-
-def str2bool_no(string):  # return False if string = 'no'
-    return string.lower() in ("no")
-
-
 def main():
     name = user.welcome()
     print('Answer "yes" if given number is prime. Otherwise answer "no".')
@@ -25,12 +17,12 @@ def main():
         x = randint(1, 100)
         user_answer = user.question_answer(x)
         if is_prime(x):  # True goes first
-            if str2bool_yes(user_answer):  # yes = correct answer
+            if user_answer.lower() == 'yes':  # yes = correct answer
                 user.correct()
             else:
                 return user.wrong(name, user_answer, "'yes'")
         else:
-            if str2bool_no(user_answer):  # no = correct answer
+            if user_answer.lower() == 'no':  # no = correct answer
                 user.correct()
             else:
                 return user.wrong(name, user_answer, "'no'")

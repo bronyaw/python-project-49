@@ -15,12 +15,9 @@ def main():
                     str(x) + ' * ' + str(y),
                     str(x) + ' - ' + str(y)]
         user_answer = user.question_answer(question[index])
-        try:
-            if int(user_answer) == answer[index]:  # correct answer
-                user.correct()
-            else:  # wrong answer
-                return user.wrong(name, user_answer, answer[index])
-        except ValueError:  # if not number, so it doesnt break
+        if user_answer == str(answer[index]):  # correct answer
+            user.correct()
+        else:  # wrong answer
             return user.wrong(name, user_answer, answer[index])
     user.win(name)
 
