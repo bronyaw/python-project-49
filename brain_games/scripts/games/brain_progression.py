@@ -22,10 +22,7 @@ def main():
         question = progr(x, y)
         answer = question[y - 1] + x
         user_answer = user.question_answer(' '.join(map(str, question)))
-        if user_answer == str(answer):
-            user.correct()
-        else:
-            return user.wrong(name, user_answer, answer)
+        user.choice(name, user_answer, str(answer))
     user.win(name)
 
 

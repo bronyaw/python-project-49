@@ -17,15 +17,11 @@ def main():
         x = randint(1, 100)
         user_answer = user.question_answer(x)
         if is_prime(x):  # True goes first
-            if user_answer.lower() == 'yes':  # yes = correct answer
-                user.correct()
-            else:
-                return user.wrong(name, user_answer, "'yes'")
+            answer = 'yes'
+            user.choice(name, user_answer, answer)
         else:
-            if user_answer.lower() == 'no':  # no = correct answer
-                user.correct()
-            else:
-                return user.wrong(name, user_answer, "'no'")
+            answer = 'no'
+            user.choice(name, user_answer, answer)
     user.win(name)
 
 

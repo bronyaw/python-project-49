@@ -1,7 +1,8 @@
 import prompt
+from sys import exit
 
 
-cor_answers = 0  # counts wins
+cor_answers = 0  # counts correct answers
 
 
 def welcome():
@@ -15,6 +16,7 @@ def wrong(name, user_answer, answer):
     print(f"'{user_answer}' is wrong answer ;( "
           f"Correct answer was {answer}\n"
           f"Let's try again, {name}!")
+    exit()
 
 
 def win(name):
@@ -31,3 +33,10 @@ def question_answer(question):
     print('Question:', question)
     user_answer = input('Your answer: ')
     return user_answer
+
+
+def choice(name, user_answer, answer):
+    if user_answer.lower() == answer:
+        correct()
+    else:
+        wrong(name, user_answer, f"'{answer}'")
