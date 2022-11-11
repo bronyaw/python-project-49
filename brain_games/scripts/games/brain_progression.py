@@ -3,14 +3,16 @@ from random import randint
 from brain_games.scripts import user_engine as user
 
 
-def progr(x, y):  # makes list of progression of x ; y index = '..'
+def progr(x):  # makes list of progression of x ; dot_index = '..'
     string = []
     plus = x
-    while len(string) != 10:
+    max_length = randint(6, 9)
+    dot_index = randint(1, max_length - 1)
+    while len(string) != max_length:
         string.append(plus)
         plus = plus + x
-    string[y] = '..'
-    return string
+    string[dot_index] = '..'
+    return string, dot_index
 
 
 def main():
@@ -18,9 +20,8 @@ def main():
     print("What number is missing in the progression?")
     while user.cor_answers != 3:
         x = randint(1, 20)
-        y = randint(1, 9)
-        question = progr(x, y)
-        answer = question[y - 1] + x
+        question, dot_index = progr(x)
+        answer = question[dot_index - 1] + x
         user_answer = user.question_answer(' '.join(map(str, question)))
         user.choice(name, user_answer, str(answer))
     user.win(name)
