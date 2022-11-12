@@ -4,18 +4,16 @@ from brain_games.scripts import user_engine as user
 
 
 def main():
-    name = user.welcome()
-    print('Answer "yes" if the number is even, otherwise answer "no".')
-    while user.cor_answers != 3:
+    user.welcome()
+    user.game_announce('brain_even')
+    while True:
         question = randint(0, 100)
-        user_answer = user.question_answer(question)
         if (question % 2) == 0:  # even
             answer = 'yes'
-            user.choice(name, user_answer, answer)
+            user.game_start(answer, question)
         else:  # odd
             answer = 'no'
-            user.choice(name, user_answer, answer)
-    user.win(name)
+            user.game_start(answer, question)
 
 
 if __name__ == '__main__':

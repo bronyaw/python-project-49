@@ -11,18 +11,17 @@ def is_prime(n):  # checks if number is prime
 
 
 def main():
-    name = user.welcome()
-    print('Answer "yes" if given number is prime. Otherwise answer "no".')
-    while user.cor_answers != 3:
+    user.welcome()
+    user.game_announce('brain_prime')
+    while True:
         x = randint(1, 100)
-        user_answer = user.question_answer(x)
+        question = x
         if is_prime(x):  # True goes first
             answer = 'yes'
-            user.choice(name, user_answer, answer)
+            user.game_start(answer, question)
         else:
             answer = 'no'
-            user.choice(name, user_answer, answer)
-    user.win(name)
+            user.game_start(answer, question)
 
 
 if __name__ == '__main__':
