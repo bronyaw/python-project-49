@@ -20,11 +20,11 @@ def question_answer(question):  # takes user input and returnes its answer
     return user_answer
 
 
-def choice(name, user_answer, answer):  # checks user answer
+def choice(user_answer, answer):  # checks user answer
     if user_answer.lower() == str(answer):
         correct()
     else:
-        wrong(name, user_answer, f"'{answer}'")
+        wrong(user_answer, f"'{answer}'")
 
 
 def correct():
@@ -33,14 +33,14 @@ def correct():
     cor_answers += 1
 
 
-def wrong(name, user_answer, answer):
+def wrong(user_answer, answer):
     print(f"'{user_answer}' is wrong answer ;( "
           f"Correct answer was {answer}\n"
           f"Let's try again, {name}!")
     exit()
 
 
-def win(name):
+def win():
     print(f'Congratulations, {name}!')
     exit()
 
@@ -50,6 +50,5 @@ def game_start(module):  # main engine
     while cor_answers != 3:
         answer, question = module.game()
         user_answer = question_answer(question)
-        choice(name, user_answer, answer)
-    else:
-        win(name)
+        choice(user_answer, answer)
+    win()
