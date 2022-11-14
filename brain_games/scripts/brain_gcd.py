@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+# something something division gaming
 
 from brain_games import user_engine
 from brain_games.games import game_gcd

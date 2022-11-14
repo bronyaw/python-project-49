@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+# don't touch, test checker
 
 from ..cli import welcome_user
 
