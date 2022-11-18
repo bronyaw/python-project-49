@@ -7,13 +7,13 @@ def game_start(module):
     name = prompt.string('May i have your name? ')
     print(f"Hello, {name}!")
     print(module.GAME_DESCRIPTION)
-    cor_answers = 0
-    while cor_answers != 3:
+    cor_answers = 3
+    while cor_answers:  # if cor_answers == 0, user wins
         answer, question = module.game_run()
         print('Question:', question)
         user_answer = input('Your answer: ')
         if user_answer.lower() == str(answer):
-            cor_answers += 1
+            cor_answers -= 1
             print('Correct!')
         else:
             print(f"'{user_answer}' is wrong answer ;( "

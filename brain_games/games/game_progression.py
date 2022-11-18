@@ -5,16 +5,16 @@ GAME_DESCRIPTION = "What number is missing in the progression?"
 
 
 def gen_progression():
-    string = []
-    rng_num = randint(1, 20)
-    plus = rng_num
+    progr = []
+    num = randint(1, 20)
+    plus = num
     max_length = randint(6, 9)
     dot_index = randint(1, max_length - 1)
-    while len(string) != max_length:
-        string.append(plus)
-        plus += rng_num
-    string[dot_index] = '..'
-    return string, dot_index
+    while len(progr) != max_length:
+        progr.append(plus)
+        plus += num
+    progr[dot_index] = '..'
+    return progr, dot_index
 
 
 def game_run():
