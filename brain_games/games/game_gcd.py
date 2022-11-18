@@ -5,7 +5,7 @@ from math import gcd
 GAME_DESCRIPTION = 'Find the greatest common divisor of given numbers.'
 
 
-def game():
+def game_run():
     x = randint(1, 100)
     y = randint(1, 100)
     answer = gcd(x, y)  # find greatest div number

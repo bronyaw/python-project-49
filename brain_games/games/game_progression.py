@@ -4,20 +4,20 @@ from random import randint
 GAME_DESCRIPTION = "What number is missing in the progression?"
 
 
-def progr(x):  # makes list of x progression
+def gen_progression():
     string = []
-    plus = x
-    max_length = randint(6, 9)  # length of progression varies
+    rng_num = randint(1, 20)
+    plus = rng_num
+    max_length = randint(6, 9)
     dot_index = randint(1, max_length - 1)
     while len(string) != max_length:
         string.append(plus)
-        plus = plus + x
+        plus += rng_num
     string[dot_index] = '..'
-    return string, dot_index  # returns '..' index aswell
+    return string, dot_index
 
 
-def game():
-    x = randint(1, 20)
-    question, dot_index = progr(x)
-    answer = question[dot_index - 1] + x
+def game_run():
+    question, dot_index = gen_progression()
+    answer = question[dot_index - 1] + question[0]
     return answer, ' '.join(map(str, question))

@@ -5,17 +5,20 @@ GAME_DESCRIPTION = 'Answer "yes" if given number is prime. '\
                    'Otherwise answer "no".'
 
 
-def is_prime(n):  # checks if number is prime
+def is_prime(n):
+    if n == 0 or n == 1:
+        return False
     for i in range(2, int(n / 2)):
         if (n % i) == 0:
             return False
-    return True
+        else:
+            return True
 
 
-def game():
+def game_run():
     x = randint(1, 100)
     question = x
-    if is_prime(x):  # True goes first
+    if is_prime(x):
         answer = 'yes'
         return answer, question
     else:

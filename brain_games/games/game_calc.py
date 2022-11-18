@@ -1,15 +1,14 @@
-from random import randint
+from random import randint, choice
 
 
 GAME_DESCRIPTION = 'What is the result of the expression?'
 
 
-def game():
-    x = randint(1, 20)  # x, y -  variables for expression
+def game_run():
+    x = randint(1, 20)
     y = randint(1, 20)
-    index = randint(0, 2)  # index for answer, question
-    answer = [x + y, x * y, x - y]  # calculates
-    question = [str(x) + ' + ' + str(y),  # prints
-                str(x) + ' * ' + str(y),
-                str(x) + ' - ' + str(y)]
-    return (str(answer[index]), question[index])
+    question = choice([f'{x} + {y}',
+                       f'{x} * {y}',
+                       f'{x} - {y}'])
+    answer = eval(question)
+    return answer, question
